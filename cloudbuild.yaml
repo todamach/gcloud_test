@@ -1,0 +1,13 @@
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/indigo-splice-346214/gcloud_test', '.']
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/indigo-splice-346214/gcloud_test']
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'gcloud-test', '--image', 'gcr.io/indigo-splice-346214/gcloud_test', '--region', 'europe-central2', '--platform', 'managed', '--port', '3000']
+images:
+  - gcr.io/indigo-splice-346214/gcloud_test

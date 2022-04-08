@@ -1,6 +1,6 @@
 FROM node:erbium-alpine3.14
 
-WORKDIR ./app
+WORKDIR .
 
 COPY package.json .
 

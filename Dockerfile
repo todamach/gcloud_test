@@ -13,4 +13,4 @@ RUN npm build
 ENV PORT=3000
 
 EXPOSE ${PORT}
-CMD [ "npm", "run", "start:prod" ]
+CMD [ "node", "dist/main"]

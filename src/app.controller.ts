@@ -20,7 +20,8 @@ export class AppController {
   async createQueueItem(): Promise<any> {
     const queue = 'Test-queue';
     const location = 'europe-central2';
-    const url = 'https://webhook.site/bf43e080-0985-45ce-9d8b-2028e29fde45';
+    const url =
+      'https://gcloud-test-otw6ltswaq-lm.a.run.app/execute-queue-item';
     const inSeconds = 60;
     const serviceAccountEmail =
       'test-service-account@indigo-splice-346214.iam.gserviceaccount.com';
@@ -32,9 +33,9 @@ export class AppController {
       httpRequest: {
         httpMethod: 'POST',
         url,
-        // oidcToken: {
-        //   serviceAccountEmail,
-        // },
+        oidcToken: {
+          serviceAccountEmail,
+        },
       },
     };
 
@@ -72,7 +73,9 @@ export class AppController {
       // Or, if multiple clients access the backend:
       //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
     });
+
     const payload = ticket.getPayload();
+    console.log(payload);
     return payload;
     // const userid = payload['sub'];
     // If request specified a G Suite domain:

@@ -69,7 +69,7 @@ export class AppController {
     console.log('token', token.split(' ')[1]);
     const ticket = await client.verifyIdToken({
       idToken: token.split(' ')[1],
-      audience: 'https://gcloud-test-otw6ltswaq-lm.a.run.app',
+      audience: 'https://gcloud-test-otw6ltswaq-lm.a.run.app/execute-queue-item',
       // Specify the CLIENT_ID of the app that accesses the backend
       // Or, if multiple clients access the backend:
       //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]

@@ -63,7 +63,7 @@ export class AppController {
 
   @Post('execute-queue-item')
   async executeQueueItem(@Headers('authorization') token: string): Promise<any> {
-    const CLIENT_ID = 'indigo-splice-346214';
+    const CLIENT_ID = '570330344859-dd8bhbgd8r2q0504prhnh5hs1l24tefj.apps.googleusercontent.com';
     const client = new OAuth2Client(CLIENT_ID);
     console.log('token', token);
     console.log('token', token.split(' ')[1]);

@@ -65,7 +65,7 @@ export class AppController {
   async executeQueueItem(@Headers('token') token: string): Promise<any> {
     const CLIENT_ID = '112332348383241365204';
     const client = new OAuth2Client(CLIENT_ID);
-
+    console.log('token');
     const ticket = await client.verifyIdToken({
       idToken: token,
       audience: CLIENT_ID,

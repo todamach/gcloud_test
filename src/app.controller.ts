@@ -66,8 +66,9 @@ export class AppController {
     const CLIENT_ID = '112332348383241365204';
     const client = new OAuth2Client(CLIENT_ID);
     console.log('token', token);
+    console.log('token', token.split(' ')[1]);
     const ticket = await client.verifyIdToken({
-      idToken: token,
+      idToken: token.split(' ')[1],
       audience: CLIENT_ID,
       // Specify the CLIENT_ID of the app that accesses the backend
       // Or, if multiple clients access the backend:

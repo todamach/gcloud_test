@@ -31,7 +31,7 @@ export class AppController {
 
     const task: ITask = {
       httpRequest: {
-        httpMethod: 'POST',
+        httpMethod: 'GET',
         url,
         oidcToken: {
           serviceAccountEmail,
@@ -45,12 +45,12 @@ export class AppController {
       task.httpRequest.body = Buffer.from(payload).toString('base64');
     }
 
-    if (inSeconds) {
-      // The time when the task is scheduled to be attempted.
-      task.scheduleTime = {
-        seconds: inSeconds + Date.now() / 1000,
-      };
-    }
+    // if (inSeconds) {
+    //   // The time when the task is scheduled to be attempted.
+    //   task.scheduleTime = {
+    //     seconds: inSeconds + Date.now() / 1000,
+    //   };
+    // }
 
     // Send create task request.
     console.log('Sending task:');

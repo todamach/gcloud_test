@@ -10,6 +10,8 @@ COPY . .
 
 RUN npm build
 
+COPY /app/dist ./dist
+
 ENV PORT=3000
 
 EXPOSE ${PORT}

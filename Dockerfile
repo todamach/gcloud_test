@@ -8,9 +8,7 @@ RUN npm i
 
 COPY . .
 
-RUN npm build
-
-COPY /app/dist ./dist
+RUN npm run build
 
 ENV PORT=3000
 

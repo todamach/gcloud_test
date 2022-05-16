@@ -64,6 +64,8 @@ export class AppController {
   @Post('execute-queue-item')
   async executeQueueItem(@Headers() headers: string, @Body() request): Promise<any> {
     console.log('request body', request);
+    console.log('request headers', headers);
+
     const CLIENT_ID = '112332348383241365204';
     const client = new OAuth2Client(CLIENT_ID);
     // console.log('token', headers.token);

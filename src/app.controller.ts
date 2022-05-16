@@ -36,6 +36,9 @@ export class AppController {
         oidcToken: {
           serviceAccountEmail,
         },
+        headers: {
+          'Content-Type': 'application/json',
+        },
       },
     };
 

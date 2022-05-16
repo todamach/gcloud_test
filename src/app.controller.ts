@@ -45,7 +45,7 @@ export class AppController {
     const payload = JSON.stringify({ testParam: 'test' });
 
     if (payload && task.httpRequest) {
-      task.httpRequest.body = Buffer.from(payload).toString('base64');
+      task.httpRequest.body = payload; //Buffer.from(payload).toString('base64');
     }
 
     // if (inSeconds) {

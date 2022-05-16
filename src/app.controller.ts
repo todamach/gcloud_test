@@ -62,23 +62,23 @@ export class AppController {
   }
 
   @Post('execute-queue-item')
-  async executeQueueItem(@Headers('authorization') token: string, @Body() request): Promise<any> {
+  async executeQueueItem(@Headers() headers: string, @Body() request): Promise<any> {
     console.log('request body', request);
     const CLIENT_ID = '112332348383241365204';
     const client = new OAuth2Client(CLIENT_ID);
-    console.log('token', token);
-    console.log('token', token.split(' ')[1]);
-    const ticket = await client.verifyIdToken({
-      idToken: token.split(' ')[1],
-      audience: 'https://gcloud-test-otw6ltswaq-lm.a.run.app/execute-queue-item',
-      // Specify the CLIENT_ID of the app that accesses the backend
-      // Or, if multiple clients access the backend:
-      //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
-    });
-
-    const payload = ticket.getPayload();
-    console.log(payload);
-    return payload;
+    // console.log('token', headers.token);
+    // console.log('token', headers.token.split(' ')[1]);
+    // const ticket = await client.verifyIdToken({
+    //   idToken: token.split(' ')[1],
+    //   audience: 'https://gcloud-test-otw6ltswaq-lm.a.run.app/execute-queue-item',
+    //   // Specify the CLIENT_ID of the app that accesses the backend
+    //   // Or, if multiple clients access the backend:
+    //   //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+    // });
+    //
+    // const payload = ticket.getPayload();
+    // console.log(payload);
+    return headers;
     // const userid = payload['sub'];
     // If request specified a G Suite domain:
     // const domain = payload['hd'];

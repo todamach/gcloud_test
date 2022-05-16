@@ -1,4 +1,4 @@
-import { Controller, Get, Headers, Post } from "@nestjs/common";
+import { Body, Controller, Get, Headers, Post } from "@nestjs/common";
 import { AppService } from './app.service';
 import { CloudTasksClient } from '@google-cloud/tasks';
 import { google } from '@google-cloud/tasks/build/protos/protos';
@@ -62,7 +62,8 @@ export class AppController {
   }
 
   @Post('execute-queue-item')
-  async executeQueueItem(@Headers('authorization') token: string): Promise<any> {
+  async executeQueueItem(@Headers('authorization') token: string, @Body() request): Promise<any> {
+    console.log('request body', request);
     const CLIENT_ID = '112332348383241365204';
     const client = new OAuth2Client(CLIENT_ID);
     console.log('token', token);
